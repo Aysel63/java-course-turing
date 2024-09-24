@@ -29,12 +29,15 @@ public class NumberGuess {
 
                 int[] resultArray = Arrays.copyOf(array, count);
                 Arrays.sort(resultArray);
-                System.out.println("Your numbers:");
-                for (int number : resultArray) {
-                    System.out.println(number);
-                }
+                printNumbers(resultArray);
                 break;
             }
+        }
+    }
+    public static void printNumbers(int[] numbers){
+        System.out.println("Your numbers: ");
+        for(int number:numbers){
+            System.out.println(number);
         }
     }
 }
