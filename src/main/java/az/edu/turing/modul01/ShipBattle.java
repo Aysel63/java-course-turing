@@ -9,7 +9,7 @@ public class ShipBattle {
         Random random = new Random();
         int size = 5;
         char[][] field = new char[size][size];
-        initializeField(field,'-');
+        initializeField(field);
         int targetX = random.nextInt(size);
         int targetY = random.nextInt(size);
         System.out.println("All set. Get ready to rumble!");
@@ -34,10 +34,10 @@ public class ShipBattle {
 
 
     }
-    public static void initializeField(char[][] field,char initialChar){
+    public static void initializeField(char[][] field){
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field.length; j++) {
-                field[i][j]=initialChar;
+                field[i][j]='-';
 
             }
 
