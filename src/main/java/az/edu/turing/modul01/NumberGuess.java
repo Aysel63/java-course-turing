@@ -15,13 +15,13 @@ public class NumberGuess {
         System.out.println("Let the game begin!");
         while (true) {
             System.out.println("Enter a number:");
-            int name = scanner.nextInt();
-            array[count] = name;
+            int number= scanner.nextInt();
+            array[count] =number;
             count++;
 
-            if (name < randomBoundedInt) {
+            if (number < randomBoundedInt) {
                 System.out.println("Your number is too small. Please, try again..");
-            } else if (name > randomBoundedInt) {
+            } else if (number > randomBoundedInt) {
                 System.out.println("Your number is too big. Please, try again..");
             } else {
                 System.out.println("Congratulations, you guessed the number!");
@@ -34,9 +34,10 @@ public class NumberGuess {
             }
         }
     }
-    public static void printNumbers(int[] numbers){
+
+    public static void printNumbers(int[] numbers) {
         System.out.println("Your numbers: ");
-        for(int number:numbers){
+        for (int number : numbers) {
             System.out.println(number);
         }
     }

@@ -34,11 +34,11 @@ public class ShipBattle {
 
 
     }
-    public static void initializeField(char[][] field){
+
+    public static void initializeField(char[][] field) {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field.length; j++) {
-                field[i][j]='-';
-
+                field[i][j] = '-';
             }
 
         }
@@ -66,8 +66,9 @@ public class ShipBattle {
     public static void printField(char[][] field) {
         System.out.println("Game field:");
         System.out.print("  ");
-        for(int column=0;column<field[0].length;column++){
-            System.out.print(column + " ");}
+        for (int column = 0; column < field[0].length; column++) {
+            System.out.print(column + " ");
+        }
         System.out.println();
         for (int i = 0; i < field.length; i++) {
             System.out.print(i + " ");
