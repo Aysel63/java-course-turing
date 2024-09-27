@@ -1,6 +1,7 @@
 package az.edu.turing.HomeWork;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainApp {
@@ -12,12 +13,15 @@ public class MainApp {
         playerList.add(new Player(5, "Nurcan", 19, 87.0, true));
         playerList.add(new Player(6, "Turqut", 20, 93.0, false));
 
-        playerList.sort(new Player());
+
+        playerList.sort(Comparator.comparing(Player::getScore).reversed()
+                .thenComparing(Player::getFemale)
+                .thenComparingInt(Player::getAge)
+                .thenComparing(Player::getName).reversed()
+                .thenComparingInt(Player::getId));
 
 
-        for (Player player : playerList) {
-            System.out.println(player);
-        }
+        playerList.forEach(System.out::println);
 
     }
 }

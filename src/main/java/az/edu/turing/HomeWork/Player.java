@@ -1,8 +1,7 @@
 package az.edu.turing.HomeWork;
 
-import java.util.Comparator;
 
-public class Player implements Comparator<Player> {
+public class Player {
     private Integer id;
     private String name;
     private Integer age;
@@ -62,27 +61,9 @@ public class Player implements Comparator<Player> {
         isFemale = female;
     }
 
-    @Override
-    public int compare(Player p1, Player p2) {
-        int scoreComparison = p2.getScore().compareTo(p1.getScore());
-        if (scoreComparison != 0) {
-            return scoreComparison;
-        }
-        int genderComparison=p2.getFemale().compareTo(p1.getFemale());
-        if(genderComparison!=0){
-            return genderComparison;
-        }
-        int ageComparison=p1.getAge().compareTo(p2.getAge());
-        if(ageComparison!=0){
-            return ageComparison;
-        }
-        int nameComparison=p2.getName().compareTo(p1.getName());
-        if(nameComparison!=0){
-            return nameComparison;
-        }
-        return p1.getId().compareTo(p2.getId());
 
-    }
+
+
 
     @Override
     public String toString() {
@@ -94,4 +75,6 @@ public class Player implements Comparator<Player> {
                 ", isFemale=" + isFemale +
                 '}';
     }
+
+
 }
