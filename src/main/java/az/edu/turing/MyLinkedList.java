@@ -1,9 +1,12 @@
 package az.edu.turing;
-
 import java.util.Objects;
 import java.util.Optional;
 
 public class MyLinkedList<T> {
+
+    private Node<T> head;
+    private Node<T> tail;
+    private int size;
 
     private static class Node<T> {
         T data;
@@ -15,12 +18,8 @@ public class MyLinkedList<T> {
         }
     }
 
-    private Node<T> head;
-    private Node<T> tail;
-    private int size;
 
-
-    public MyLinkedList<T> addHead(T item) {
+    public T addHead(T item) {
         Node<T> newNode = new Node<>(item);
         if (head == null) {
             head = tail = newNode;
@@ -29,26 +28,26 @@ public class MyLinkedList<T> {
             head = newNode;
         }
         size++;
-        return this;
+        return item;
     }
 
 
-    public MyLinkedList<T> addTail(T item) {
+    public T addTail(T item) {
         Node<T> newNode = new Node<>(item);
-        if (tail == null) {
+        if (size == 0) {
             head = tail = newNode;
         } else {
             tail.next = newNode;
             tail = newNode;
         }
         size++;
-        return this;
+        return item;
     }
 
 
     public Optional<T> removeHead() {
         if (size == 0) return Optional.empty();
-        T removedData = (T) head.data;
+        T removedData = head.data;
         head = head.next;
         size--;
         if (size == 0) tail = null;
@@ -64,11 +63,11 @@ public class MyLinkedList<T> {
         }
 
         Node<T> current = head;
-        while (current.next != tail) {
+        for (int i = 0; i < size - 2; i++) {
             current = current.next;
         }
 
-        T removedData = (T) tail.data;
+        T removedData = tail.data;
         tail = current;
         tail.next = null;
         size--;
@@ -76,7 +75,7 @@ public class MyLinkedList<T> {
     }
 
 
-    public Optional<T> insert(int index, final T item) {
+    public Optional<T> insert(final int index, final T item) {
         if (index < 0 || index > size) return Optional.empty();
 
         if (index == 0) {
@@ -97,7 +96,7 @@ public class MyLinkedList<T> {
     }
 
 
-    public Optional<T> update(int index, final T item) {
+    public Optional<T> update(final int index, final T item) {
         if (index < 0 || index >= size) return Optional.empty();
 
         Node<T> current = head;
@@ -109,7 +108,7 @@ public class MyLinkedList<T> {
     }
 
 
-    public Optional<T> delete(int index) {
+    public Optional<T> delete(final int index) {
         if (index < 0 || index >= size) return Optional.empty();
 
         if (index == 0) {
@@ -160,7 +159,7 @@ public class MyLinkedList<T> {
     }
 
 
-    public T[] toArray() {
+    public Object[] toArray() {
         T[] array = (T[]) new Object[size];
         Node<T> current = head;
         for (int i = 0; i < size; i++) {
